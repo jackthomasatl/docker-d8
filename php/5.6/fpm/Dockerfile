@@ -3,6 +3,7 @@
 FROM php:5.6.36-fpm
 
 ENV DEBIAN_FRONTEND=noninteractive PHP=5.6 USER=www-data
+ENV COMPOSER_ALLOW_SUPERUSER=1
 
 RUN mkdir -p /opt/docker/
 COPY ./scripts /opt/docker/scripts
