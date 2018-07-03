@@ -26,5 +26,6 @@ COPY ./config/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
 # Move php sample app
 COPY ./phpinfo /app
+RUN ln -s /app /opt/docroot
 
 WORKDIR /app
