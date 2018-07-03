@@ -17,6 +17,7 @@ RUN /bin/bash /opt/docker/scripts/build_php_libs.sh
 # Install Utils
 RUN /bin/bash /opt/docker/scripts/install_utils.sh
 RUN /bin/bash /opt/docker/scripts/install_drush.sh
+COPY ./tools/* /usr/local/bin/
 
 # Move configs in
 COPY ./config/php.ini /usr/local/etc/php/php.ini
