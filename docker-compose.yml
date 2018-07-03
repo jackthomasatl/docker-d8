@@ -1,0 +1,64 @@
+# Pantheon Environment: (Updated 06/05/2018 - jthomas)
+#     Operating System: redhat 4.14.11
+#     Webserver: nginx/1.8.1
+#     Php: 5.6.36
+#     Drupal: 7.59
+#     Redis: 2.8.23
+#     DB: 5.5.5-10.0.23-MariaDB
+
+version: '3'
+
+services:
+  mariadb:
+    image: "jackthomasatl/docker-d7-mariadb:5.5"
+    hostname: usbank-elavon-db
+    ports:
+      - "3306:3306" # mysql
+    environment:
+      - MYSQL_DATABASE=elavon
+      - MYSQL_USER=elavon-user
+      - MYSQL_PASSWORD=elavon-pass
+      - MYSQL_RANDOM_ROOT_PASSWORD=yes
+    volumes:
+      - "./docker/db/data:/var/lib/mysql:cached"
+
+  redis:
+    image: "jackthomasatl/docker-d7-redis:3.2"
+    hostname: usbank-elavon-redis
+    ports:
+      - "6379:6379" # redis
+
+  nginx:
+    image: "jackthomasatl/docker-d7-nginx:stable"
+    hostname: developer-local.elavon.com
+    ports:
+      - "80:80" # http
+      - "443:443" #https
+    depends_on:
+      - mariadb
+      - redis
+    links:
+      - php
+    volumes:
+      - ./docker/nginx/ssl:/opt/docker/ssl
+      - ./:/app
+
+  php:
+    image: "jackthomasatl/docker-d7-php:5.6.36-fpm"
+    environment:
+      - DB_HOST=mariadb # this matches the name:port of the DB container
+      - DB_PORT=3306
+      - DB_NAME=elavon
+      - DB_USER=elavon-user
+      - DB_PASS=elavon-pass
+      - REDIS_NODE=1
+      - REDIS_HOST=redis     # this matches the name of the redis container
+      - REDIS_DB=0           # which redis db to use (0 is the standard default)
+      - HTTP_PROXY=$DOCKER_PROXY
+      - http_proxy=$DOCKER_PROXY
+      - HTTPS_PROXY=$DOCKER_PROXY
+      - https_proxy=$DOCKER_PROXY
+    ports:
+      - "9001:9001" #xdebug
+    volumes:
+      - ./:/app
