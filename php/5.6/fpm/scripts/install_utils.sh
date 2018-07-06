@@ -4,4 +4,6 @@ apt-get update && apt-get install -y --no-install-recommends \
   vim \
   wget \
   curl \
-  mariadb-client
+  mariadb-client \
+  git \
+  openssh-client
