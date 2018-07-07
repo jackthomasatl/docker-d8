@@ -5,5 +5,6 @@ apt-get update && apt-get install -y --no-install-recommends \
   wget \
   curl \
   mariadb-client \
+  pv \
   git \
   openssh-client
