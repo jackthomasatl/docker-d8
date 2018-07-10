@@ -5,4 +5,5 @@ mysqldump \
   -P "$DB_PORT" \
   -u "$DB_USER" \
   --password="$DB_PASS" \
-  "$DB_NAME" > /opt/sql/db.sql
+  "$DB_NAME" \
+  --extended-insert=FALSE  > /opt/sql/db.sql
