@@ -1,6 +1,0 @@
-#!/bin/bash
-
-rm -rf /root/.ssh &&
-  cp -Rv /root/.host_ssh /root/.ssh &&
-  chown root:root /root/.ssh &&
-  chmod -R 600 /root/.ssh

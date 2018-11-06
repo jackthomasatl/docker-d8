@@ -17,9 +17,9 @@ RUN /bin/bash /opt/docker/scripts/build_php_base_libs.sh
 RUN /bin/bash /opt/docker/scripts/build_php_pecl_libs.sh
 
 # Install Utils
+COPY ./tools /opt/docker/tools
+ENV PATH="/opt/docker/tools:${PATH}"
 RUN /bin/bash /opt/docker/scripts/install_utils.sh
-RUN /bin/bash /opt/docker/scripts/install_drush.sh
-COPY ./tools/* /usr/local/bin/
 
 # Move configs in
 COPY ./config/php.ini /usr/local/etc/php/php.ini
