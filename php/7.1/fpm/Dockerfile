@@ -23,6 +23,7 @@ RUN /bin/bash /opt/docker/scripts/install_utils.sh
 
 # Move configs in
 COPY ./config/php.ini /usr/local/etc/php/php.ini
+COPY ./config/php-fpm.conf /usr/local/etc/php-fpm.d/www.conf
 COPY ./config/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
 # Move php sample app
