@@ -1,4 +1,4 @@
-# jackthomasatl/docker-d7-mariadb:5.5
+# jackthomasatl/docker-d8-mariadb:5.5
 
 FROM mariadb:5.5
 
