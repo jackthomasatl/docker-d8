@@ -1,4 +1,4 @@
-# jackthomasatl/docker-d7-php:7.1.23-fpm
+# jackthomasatl/docker-d8-php:7.1.23-fpm
 
 FROM php:7.1.23-fpm
 

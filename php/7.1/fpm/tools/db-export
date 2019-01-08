@@ -1,32 +1,32 @@
 #!/bin/bash
 
 mysqldump \
-  -h "$DB_HOST" \
-  -P "$DB_PORT" \
-  -u "$DB_USER" \
-  --password="$DB_PASS" \
-  "$DB_NAME" \
+  -h "$MYSQL_HOSTNAME" \
+  -P "$MYSQL_PORT" \
+  -u "$MYSQL_USER" \
+  --password="$MYSQL_PASSWORD" \
+  "$MYSQL_DATABASE" \
   --no-data \
     > /opt/sql/db.sql
 
 mysqldump \
   --extended-insert=FALSE \
-  -h "$DB_HOST" \
-  -P "$DB_PORT" \
-  -u "$DB_USER" \
-  --password="$DB_PASS" \
-  "$DB_NAME" \
+  -h "$MYSQL_HOSTNAME" \
+  -P "$MYSQL_PORT" \
+  -u "$MYSQL_USER" \
+  --password="$MYSQL_PASSWORD" \
+  "$MYSQL_DATABASE" \
   --no-create-info \
-  --ignore-table="$DB_NAME".cache \
-  --ignore-table="$DB_NAME".cache_admin_menu \
-  --ignore-table="$DB_NAME".cache_block \
-  --ignore-table="$DB_NAME".cache_bootstrap \
-  --ignore-table="$DB_NAME".cache_field \
-  --ignore-table="$DB_NAME".cache_filter \
-  --ignore-table="$DB_NAME".cache_form \
-  --ignore-table="$DB_NAME".cache_menu \
-  --ignore-table="$DB_NAME".cache_page \
-  --ignore-table="$DB_NAME".cache_path \
-  --ignore-table="$DB_NAME".cache_update \
-  --ignore-table="$DB_NAME".watchdog \
+  --ignore-table="$MYSQL_DATABASE".cache \
+  --ignore-table="$MYSQL_DATABASE".cache_admin_menu \
+  --ignore-table="$MYSQL_DATABASE".cache_block \
+  --ignore-table="$MYSQL_DATABASE".cache_bootstrap \
+  --ignore-table="$MYSQL_DATABASE".cache_field \
+  --ignore-table="$MYSQL_DATABASE".cache_filter \
+  --ignore-table="$MYSQL_DATABASE".cache_form \
+  --ignore-table="$MYSQL_DATABASE".cache_menu \
+  --ignore-table="$MYSQL_DATABASE".cache_page \
+  --ignore-table="$MYSQL_DATABASE".cache_path \
+  --ignore-table="$MYSQL_DATABASE".cache_update \
+  --ignore-table="$MYSQL_DATABASE".watchdog \
     >> /opt/sql/db.sql

@@ -10,7 +10,7 @@ version: '3'
 
 services:
   mariadb:
-    image: "jackthomasatl/docker-d7-mariadb:5.5"
+    image: "jackthomasatl/docker-d8-mariadb:5.5"
     hostname: usbank-elavon-db
     ports:
       - "3306:3306" # mysql
@@ -23,34 +23,19 @@ services:
       - "./docker/db/data:/var/lib/mysql:cached"
 
   redis:
-    image: "jackthomasatl/docker-d7-redis:3.2"
+    image: "jackthomasatl/docker-d8-redis:3.2"
     hostname: usbank-elavon-redis
     ports:
       - "6379:6379" # redis
 
-  nginx:
-    image: "jackthomasatl/docker-d7-nginx:stable"
-    hostname: developer-local.elavon.com
-    ports:
-      - "80:80" # http
-      - "443:443" #https
-    depends_on:
-      - mariadb
-      - redis
-    links:
-      - php
-    volumes:
-      - ./docker/nginx/ssl:/opt/docker/ssl
-      - ./:/app
-
   php:
-    image: "jackthomasatl/docker-d7-php:5.6.36-fpm"
+    image: "jackthomasatl/docker-d8-php:5.6.36-fpm"
     environment:
-      - DB_HOST=mariadb # this matches the name:port of the DB container
-      - DB_PORT=3306
-      - DB_NAME=elavon
-      - DB_USER=elavon-user
-      - DB_PASS=elavon-pass
+      - MYSQL_HOSTNAME=mariadb # this matches the name:port of the DB container
+      - MYSQL_PORT=3306
+      - MYSQL_DATABASE=eu-portal-dev
+      - MYSQL_USER=elavon-user
+      - MYSQL_PASSWORD=elavon-pass
       - REDIS_NODE=1
       - REDIS_HOST=redis     # this matches the name of the redis container
       - REDIS_DB=0           # which redis db to use (0 is the standard default)
