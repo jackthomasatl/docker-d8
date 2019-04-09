@@ -1,5 +1,0 @@
-#!/bin/bash
-
-db-console \
-  -e "drop database \`$MYSQL_DATABASE\`; create database \`$MYSQL_DATABASE\`;" \
-  --verbose

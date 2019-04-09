@@ -1,8 +1,0 @@
-#!/bin/bash
-
-mysql \
-  -h "$MYSQL_HOSTNAME" \
-  -P "$MYSQL_PORT" \
-  -u "$MYSQL_USER" \
-  --password="$MYSQL_PASSWORD" \
-  "$MYSQL_DATABASE" "$@"

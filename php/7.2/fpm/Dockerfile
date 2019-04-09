@@ -1,6 +1,6 @@
-# jackthomasatl/docker-d8-php:7.1.23-fpm
+# jackthomasatl/docker-d8-php:7.2.17-fpm
 
-FROM php:7.1.23-fpm
+FROM php:7.2.17-fpm
 
 ENV DEBIAN_FRONTEND=noninteractive PHP=7.1 USER=www-data
 ENV COMPOSER_ALLOW_SUPERUSER=1
