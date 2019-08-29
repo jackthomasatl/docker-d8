@@ -1,6 +1,6 @@
-# jackthomasatl/docker-d8-php:7.2.17-fpm
+# jackthomasatl/docker-php:7.3.8-fpm
 
-FROM php:7.2.17-fpm
+FROM php:7.3.8-fpm-buster
 
 ENV DEBIAN_FRONTEND=noninteractive PHP=7.1 USER=www-data
 ENV COMPOSER_ALLOW_SUPERUSER=1
@@ -27,7 +27,8 @@ COPY ./config/php-fpm.conf /usr/local/etc/php-fpm.d/www.conf
 COPY ./config/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
 # Move php sample app
-COPY ./phpinfo /app
-RUN ln -s /app /opt/docroot
+RUN mkdir -p /app/docroot
+COPY ./phpinfo /app/docroot
+RUN ln -s /app/docroot /opt/docroot
 
 WORKDIR /app

@@ -5,11 +5,10 @@ if [ -n "$HTTP_PROXY" ]; then
 fi
 
 # Possible: bcmath bz2 calendar ctype curl dba dom enchant exif fileinfo filter ftp gd gettext gmp hash iconv imap interbase intl json ldap mbstring mysqli oci8 odbc opcache pcntl pdo pdo_dblib pdo_firebird pdo_mysql pdo_oci pdo_odbc pdo_pgsql pdo_sqlite pgsql phar posix pspell readline recode reflection session shmop simplexml snmp soap sockets spl standard sysvmsg sysvsem sysvshm tidy tokenizer wddx xml xmlreader xmlrpc xmlwriter xsl zip
-
 BASE_PHP_MODULES=('bcmath' 'bz2' 'calendar' 'ctype' 'curl' 'dba' 'dom' 'exif' 'fileinfo' 'ftp' 'gd' 'gettext' 'gmp' 'hash' 'iconv' 'imap' 'json' 'ldap' 'mbstring' 'mysqli' 'opcache' 'pcntl' 'pdo' 'pdo_dblib' 'pdo_mysql' 'pdo_pgsql' 'pdo_sqlite' 'pgsql' 'phar' 'posix' 'pspell' 'readline' 'session' 'shmop' 'simplexml' 'soap' 'sockets' 'sysvmsg' 'sysvsem' 'sysvshm' 'tidy' 'tokenizer' 'wddx' 'xml' 'xmlreader' 'xmlrpc' 'xmlwriter' 'xsl' 'zip')
 
 BZ2_LIBS='libbz2-dev'
-CURL_LIBS='curl libcurl3-dev'
+CURL_LIBS='curl libcurl4'
 FTP_LIBS='libssl-dev'
 GD_LIBS='libgd-dev libfreetype6-dev libjpeg62-turbo-dev libpng-dev libwebp-dev'
 GMP_LIBS='libgmp-dev'

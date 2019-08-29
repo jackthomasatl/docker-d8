@@ -1,3 +1,0 @@
-deb http://cloudfront.debian.net/debian stretch main
-deb http://cloudfront.debian.net/debian stretch-updates main
-deb http://cloudfront.debian.net/debian-security stretch/updates main
