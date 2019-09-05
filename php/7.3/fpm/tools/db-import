@@ -1,3 +1,0 @@
-#!/bin/bash
-
-pv /opt/sql/db.sql | db-console

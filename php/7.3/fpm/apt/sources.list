@@ -1,3 +1,0 @@
-deb http://cloudfront.debian.net/debian buster main
-deb http://cloudfront.debian.net/debian buster-updates main
-deb http://cloudfront.debian.net/debian-security buster/updates main
